@@ -28,7 +28,17 @@ void registrar_producto(Producto PROD[],int &CDP){
 		
 	}
 	cout<<endl<<"------------------------------------------"<<endl;
+}
+void LISTAR_PRODUCTOS(Producto PROD[],int CDP){
+	cout<<endl<<"---------LISTA DE PRODUCTOS-------- "<<endl<<endl;
+	
+	for(int i=0;i<CDP;i++){
+		
+		cout<<" "<<i+1<<"."<<PROD[i].nombre<<"          "<<"Precio: "<<PROD[i].precio<<endl;
+	}
+	cout<<endl;
 }	
+	
 
 int main(){
 	Producto PROD[100];
@@ -57,7 +67,7 @@ int main(){
     	registrar_producto(PROD,CDP);
 	}
 	if(opcion=='b'){
-    //	LISTAR_PRODUCTOS(PROD,CDP);
+    	LISTAR_PRODUCTOS(PROD,CDP);
 	}
 	if(opcion=='c'){
     	
