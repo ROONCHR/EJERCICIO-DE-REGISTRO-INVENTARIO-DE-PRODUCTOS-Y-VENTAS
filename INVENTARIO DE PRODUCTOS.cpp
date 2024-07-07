@@ -150,6 +150,18 @@ void LISTAR_VENTAS(Venta VENT[],int n_ventas){
 	}
 	cout<<endl<<"--------------------------------------------"<<endl;
 }	
+void CALCULAR_TOTAL_DE_VENTAS(Venta VENT[],int n_ventas){
+	cout<<endl<<"-------------CALCULAR TOTAL DE VENTAS----------"<<endl<<endl;
+	float suma=0;
+	for(int i=0;i<n_ventas;i++){
+		
+		cout<<"ID: "<<VENT[i].idVenta<<"|Recaudacion: "<<VENT[i].precioTotal<<" soles "<<endl;
+		suma=suma+VENT[i].precioTotal;
+	}
+	cout<<endl<<"Recaudacion total por ventas: "<<suma<<endl;
+	cout<<endl<<"------------------------------------------"<<endl;
+	
+}
 
 
 
@@ -199,7 +211,7 @@ int main(){
     	LISTAR_VENTAS(VENT,n_ventas);
 	}
 	if(opcion=='h'){
-    //	CALCULAR_TOTAL_DE_VENTAS(VENT,n_ventas);
+    	CALCULAR_TOTAL_DE_VENTAS(VENT,n_ventas);
 	}
     
     }while(opcion!='s');
