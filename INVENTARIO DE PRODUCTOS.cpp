@@ -34,11 +34,31 @@ void LISTAR_PRODUCTOS(Producto PROD[],int CDP){
 	
 	for(int i=0;i<CDP;i++){
 		
-		cout<<" "<<i+1<<"."<<PROD[i].nombre<<"          "<<"Precio: "<<PROD[i].precio<<endl;
+		cout<<" "<<i+1<<"."<<PROD[i].nombre<<"          "<<"Precio: "<<PROD[i].precio<<" soles "<<endl;
 	}
-	cout<<endl;
+	cout<<endl<<"--------------------------------------------"<<endl;
 }	
-	
+void BUCAR_PRODUCTO(Producto PROD[],int CDP){
+	cout<<"-----------BUSCAR PRODUCTO------------"<<endl<<endl;
+	string nom_p;
+	int flag;
+	fflush(stdin);
+	cout<<"Ingrese el nombre del producto que quiere buscar: ";
+	getline(cin, nom_p);
+	for(int i=0; i<CDP;i++){
+		if(nom_p==PROD[i].nombre){
+			cout<<"NOMBRE: "<<PROD[i].nombre<<endl;
+			cout<<"PRECIO: "<<PROD[i].precio<<endl;
+			flag=1;
+		}
+	}
+	if(flag!=1){
+		cout<<endl;
+		cout<<"!!! Producto no registrado.";
+		cout<<endl<<"--------------------------------------------"<<endl;
+	}
+	cout<<endl<<"--------------------------------------------"<<endl;
+}	
 
 int main(){
 	Producto PROD[100];
@@ -70,10 +90,10 @@ int main(){
     	LISTAR_PRODUCTOS(PROD,CDP);
 	}
 	if(opcion=='c'){
-    	
+    	BUCAR_PRODUCTO(PROD,CDP);
 	}
 	if(opcion=='d'){
-    	
+   // 	ACTUALIZAR_PRODUCTO(PROD,CDP);
 	}
 	if(opcion=='e'){
     	
