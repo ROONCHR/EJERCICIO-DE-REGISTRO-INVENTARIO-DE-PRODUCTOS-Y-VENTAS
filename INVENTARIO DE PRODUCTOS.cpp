@@ -59,6 +59,34 @@ void BUCAR_PRODUCTO(Producto PROD[],int CDP){
 	}
 	cout<<endl<<"--------------------------------------------"<<endl;
 }	
+void ACTUALIZAR_PRODUCTO(Producto PROD[],int CDP){
+	cout<<endl<<"--------------ACTUALIZAR PRODUCTO-----------"<<endl<<endl;
+	string nom_p;
+	int flag;
+	fflush(stdin);
+	cout<<"Ingrese el nombre del producto que quiere actualizar: ";
+	getline(cin, nom_p);
+	for(int i=0; i<CDP;i++){
+		if(nom_p==PROD[i].nombre){
+			cout<<endl<<"--------------------------------------------"<<endl;
+			cout<<"__VIGENTE ---> Nombre:"<<PROD[i].nombre<<" |"<<"Precio: "<<PROD[i].precio<<" soles___"<<endl<<endl;
+			cout<<"---NUEVO---"<<endl<<endl<<"NOMBRE: ";
+			getline(cin, PROD[i].nombre);
+			cout<<"PRECIO: ";
+			cin>>PROD[i].precio;
+			flag=1;
+		}
+	}
+	if(flag!=1){
+		cout<<endl;
+		cout<<"!!! Producto no registrado.";
+		cout<<endl<<"--------------------------------------------"<<endl;
+	}else{
+	
+		cout<<"Actualizado EXITOSAMENTE."<<endl<<"--------------------------------------------"<<endl;
+	}
+}
+
 
 int main(){
 	Producto PROD[100];
@@ -93,10 +121,10 @@ int main(){
     	BUCAR_PRODUCTO(PROD,CDP);
 	}
 	if(opcion=='d'){
-   // 	ACTUALIZAR_PRODUCTO(PROD,CDP);
+   		ACTUALIZAR_PRODUCTO(PROD,CDP);
 	}
 	if(opcion=='e'){
-    	
+    //	ELIMINAR_PRODUCTO(PROD,CDP);
 	}
 	if(opcion=='f'){
     	
