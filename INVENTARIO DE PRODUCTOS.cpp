@@ -115,8 +115,8 @@ struct Venta{
 void REGISTRAR_VENTA(Venta VENT[],Producto PROD[],int CDP,int &n_ventas){
 	cout<<endl<<"-------------REGISTRAR UNA VENTA----------"<<endl<<endl;
 
-	int resp=1,precio_uni,flag;
-	
+	int resp=1,flag;
+	float precio_uni;
 	while(resp==1){
 		fflush(stdin);
 		cout<<endl<<"Producto: ";
@@ -189,7 +189,7 @@ int main(){
     //	LISTAR_VENTAS(VENT,n_ventas);
 	}
 	if(opcion=='h'){
-    	
+    //	CALCULAR_TOTAL_DE_VENTAS(VENT,n_ventas);
 	}
     
     }while(opcion!='s');
