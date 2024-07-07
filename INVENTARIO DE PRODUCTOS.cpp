@@ -112,6 +112,36 @@ struct Venta{
 	int cantidad;
 	float precioTotal;
 };
+void REGISTRAR_VENTA(Venta VENT[],Producto PROD[],int CDP,int &n_ventas){
+	cout<<endl<<"-------------REGISTRAR UNA VENTA----------"<<endl<<endl;
+
+	int resp=1,precio_uni,flag;
+	
+	while(resp==1){
+		fflush(stdin);
+		cout<<endl<<"Producto: ";
+		getline(cin, VENT[n_ventas].producto);
+		for(int i=0; i<CDP;i++){
+			if(VENT[n_ventas].producto==PROD[i].nombre){
+				precio_uni=PROD[i].precio;
+				flag=1;
+			}
+					
+		}
+		cout<<"Cantidad: ";
+		cin>>VENT[n_ventas].cantidad;
+		
+		VENT[n_ventas].precioTotal=precio_uni*VENT[n_ventas].cantidad;
+		VENT[n_ventas].idVenta=n_ventas+1;
+		
+		n_ventas++;
+		cout<<endl<<"Quiere agregar otra venta? Digite (si= 1 , no= 0): ";
+		cin>>resp;
+		
+	}
+	cout<<endl<<"---------------"<<flag<<"---------------------------"<<endl;
+}
+
 
 int main(){
 	Producto PROD[100];
@@ -153,7 +183,7 @@ int main(){
     	ELIMINAR_PRODUCTO(PROD,CDP);
 	}
 	if(opcion=='f'){
-    //	REGISTRAR_VENTA(VENT,PROD,CDP,n_ventas);
+    	REGISTRAR_VENTA(VENT,PROD,CDP,n_ventas);
 	}
 	if(opcion=='g'){
     //	LISTAR_VENTAS(VENT,n_ventas);
