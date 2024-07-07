@@ -141,6 +141,16 @@ void REGISTRAR_VENTA(Venta VENT[],Producto PROD[],int CDP,int &n_ventas){
 	}
 	cout<<endl<<"---------------"<<flag<<"---------------------------"<<endl;
 }
+void LISTAR_VENTAS(Venta VENT[],int n_ventas){
+	cout<<endl<<"---------LISTA DE VENTAS-------- "<<endl<<endl;
+	
+	for(int i=0;i<n_ventas;i++){
+		
+		cout<<"ID: "<<VENT[i].idVenta<<"|Producto: "<<VENT[i].producto<<"|Cantidad: "<<VENT[i].cantidad<<"|Precio Total: "<<VENT[i].precioTotal<<endl;
+	}
+	cout<<endl<<"--------------------------------------------"<<endl;
+}	
+
 
 
 int main(){
@@ -186,7 +196,7 @@ int main(){
     	REGISTRAR_VENTA(VENT,PROD,CDP,n_ventas);
 	}
 	if(opcion=='g'){
-    //	LISTAR_VENTAS(VENT,n_ventas);
+    	LISTAR_VENTAS(VENT,n_ventas);
 	}
 	if(opcion=='h'){
     //	CALCULAR_TOTAL_DE_VENTAS(VENT,n_ventas);
