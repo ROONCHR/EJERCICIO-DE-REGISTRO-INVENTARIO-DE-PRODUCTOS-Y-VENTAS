@@ -7,12 +7,7 @@ struct Producto{
 	string nombre;
 	float precio;
 };
-struct Venta{
-	int idVenta;
-	string producto;
-	int cantidad;
-	float precioTotal;
-};
+
 void registrar_producto(Producto PROD[],int &CDP){
 	cout<<endl<<"-----AGREGAR PRODUCTO------"<<endl;
 	int resp=1;
@@ -86,13 +81,44 @@ void ACTUALIZAR_PRODUCTO(Producto PROD[],int CDP){
 		cout<<"Actualizado EXITOSAMENTE."<<endl<<"--------------------------------------------"<<endl;
 	}
 }
-
+void ELIMINAR_PRODUCTO(Producto PROD[],int &CDP){
+	cout<<endl<<"--------------ELIMINAR PRODUCTO-----------"<<endl<<endl;
+	string nom_p;
+	int flag;
+	fflush(stdin);
+	cout<<"Ingrese el nombre del producto que quiere eliminar: ";
+	getline(cin, nom_p);
+	for(int i=0;i<CDP;i++){
+		if(PROD[i].nombre==nom_p){
+			PROD[CDP-1].nombre=PROD[i].nombre;
+			cout<<endl<<"Se elimino el producto: "<<PROD[i].nombre<<endl;
+			CDP--;
+			flag=1;
+		}
+		
+	}
+	if(flag!=1){
+		cout<<endl;
+		cout<<"!!! Producto no registrado.";
+		cout<<endl<<"--------------------------------------------"<<endl;
+	}else{
+	
+		cout<<"ELIMINADO EXITOSAMENTE."<<endl<<"--------------------------------------------"<<endl;
+	}
+}
+struct Venta{
+	int idVenta;
+	string producto;
+	int cantidad;
+	float precioTotal;
+};
 
 int main(){
 	Producto PROD[100];
 	Venta VENT[100];
 	int cantidad_de_productos=0;
 	int CDP=cantidad_de_productos;
+	int n_ventas=0;
 	char opcion;
 	do{
 	fflush(stdin);
@@ -124,13 +150,13 @@ int main(){
    		ACTUALIZAR_PRODUCTO(PROD,CDP);
 	}
 	if(opcion=='e'){
-    //	ELIMINAR_PRODUCTO(PROD,CDP);
+    	ELIMINAR_PRODUCTO(PROD,CDP);
 	}
 	if(opcion=='f'){
-    	
+    //	REGISTRAR_VENTA(VENT,PROD,CDP,n_ventas);
 	}
 	if(opcion=='g'){
-    	
+    //	LISTAR_VENTAS(VENT,n_ventas);
 	}
 	if(opcion=='h'){
     	
